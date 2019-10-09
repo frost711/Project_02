@@ -3,7 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class MesoInherit
+public class MesoInherit 
 {
 	protected ArrayList<String> stations = new ArrayList<String>();
 	
@@ -14,6 +14,10 @@ public class MesoInherit
 		
 	}
 	
+	public MesoInherit(MesoStation mesoStation) {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * Loads a list of players from a txt file. Each line of the txt represents a
 	 * station. The first five lines of the txt file is information about the
@@ -29,9 +33,11 @@ public class MesoInherit
 		BufferedReader br = new BufferedReader(new FileReader(filename));
 		String lineInfo = br.readLine();
 
-		for (int i = 0; i < 6; ++i)
+		// Removes the first two lines of the text file from the ArrayList
+		for (int i = 0; i < 2; ++i)
 			lineInfo = br.readLine();
 
+		// reads in each line of the text file until the loop reaches the final line
 		while (lineInfo != null) {
 			String newStation = stationName(lineInfo);
 			stations.add(newStation);
@@ -53,6 +59,16 @@ public class MesoInherit
 	{
 		String stationName = strg.substring(0, 4);
 		return stationName;
+	}
+
+	public String[] calAverage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String letterAverage() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
