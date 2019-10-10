@@ -12,9 +12,10 @@ public class LetterAvg {
 	
 	protected ArrayList<String> sameLetterStations = new ArrayList<String>();
 	
-	public LetterAvg(String letterAverage) {
+	public LetterAvg(String letterAverage) throws IOException {
 
 		this.letterAvg = letterAverage;
+		read("Mesonet.txt");
 	}
 
 	/**
@@ -58,21 +59,19 @@ public class LetterAvg {
 		return stationName;
 	}
 
-	public String numberOfStationWithLetterAvg() {
+	public int numberOfStationWithLetterAvg() {
 		// TODO Auto-generated method stub
 		char charAvg = letterAvg.charAt(0);
 		int count = 0;
 		for (int i = 0; i < stations.size(); ++i)
 		{
-			System.out.println(stations.get(i));
-			if (charAvg == (stations.get(i).charAt(0)))
+			if (charAvg == (stations.get(i).charAt(1)))
 			{
 				sameLetterStations.add(stations.get(i));
 				++count;
-				
 			}
 		}
-			return null;
+			return count;
 	}
 
 	@Override

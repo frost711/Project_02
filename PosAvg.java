@@ -62,28 +62,28 @@ public class PosAvg {
 		return stationName;
 	}
 
-	public String indexOfStation() {
+	public int indexOfStation() {
 		int indexOfStation = 0;
 		String stationOfImportance = getStationID();
 		for (int i = 0; i < stationList.size(); ++i) {
 			if (stationOfImportance.equalsIgnoreCase(stationList.get(i))) {
 				// Index of the station is index of ArrayList + 1 since ArrayList is zero
 				// indexed
-				indexOfStation = stationList.indexOf(stationList.get(i)) + 1;
+				indexOfStation = (stationList.indexOf(stationList.get(i)) + 1);
 			}
 		}
-		return Integer.toString(indexOfStation);
+		return indexOfStation;
 	}
 
 	@Override
 	public String toString() {
 		// The index average is N+2 station and N-2 station && the average of N+1
 		// station and N-1 station
-		String station1 = stationList.get(Integer.parseInt(indexOfStation()) - 2);
-		String station2 = stationList.get(Integer.parseInt(indexOfStation()));
-		String station3 = stationList.get(Integer.parseInt(indexOfStation()) - 3);
-		String station4 = stationList.get(Integer.parseInt(indexOfStation()) + 1);
-		return String.format("The index is average of %s and %s, %s and %s, and so on.", station1, station2, station3,
+		String station1 = stationList.get((indexOfStation()) - 2);
+		String station2 = stationList.get((indexOfStation()));
+		String station3 = stationList.get((indexOfStation()) - 3);
+		String station4 = stationList.get((indexOfStation()) + 1);
+		return String.format("This index is average of %s and %s, %s and %s, and so on.", station1, station2, station3,
 				station4);
 	}
 
