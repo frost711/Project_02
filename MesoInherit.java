@@ -1,74 +1,46 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
 
-public class MesoInherit 
-{
-	protected ArrayList<String> stations = new ArrayList<String>();
-	
-	public MesoInherit(String strg) throws IOException
-	{
-		// reads the text file that is used for comparison and caluclations throught the program
-		read("Mesonet.txt");
-		
-	}
-	
+// This class is responsible for generating output for lines 3 to 6
+// Must inherit the abstract class/method as necessary
+public class MesoInherit {
+
+	private String station;
+
 	public MesoInherit(MesoStation mesoStation) {
 		// TODO Auto-generated constructor stub
+
+		this.station = mesoStation.getStID();
+
 	}
 
-	/**
-	 * Loads a list of players from a txt file. Each line of the txt represents a
-	 * station. The first five lines of the txt file is information about the
-	 * contents of the entire file. The sixth line denotes the order of the fields.
-	 * Stations should not be constructed from the first 6 lines.
-	 * 
-	 * @param filename The file to read from.
-	 * @throws IOException
-	 */
-	// May run into problem with hard coding the read method
-	public void read(String filename) throws IOException
-	{
-		BufferedReader br = new BufferedReader(new FileReader(filename));
-		String lineInfo = br.readLine();
+	public int[] calAverage() {
 
-		// Removes the first two lines of the text file from the ArrayList
-		for (int i = 0; i < 2; ++i)
-			lineInfo = br.readLine();
+		// Returns an array of 3 int values
+		int[] averages = new int[3];
+		int val1 = (int) station.charAt(0);
+		int val2 = (int) station.charAt(1);
+		int val3 = (int) station.charAt(2);
+		int val4 = (int) station.charAt(3);
 
-		// reads in each line of the text file until the loop reaches the final line
-		while (lineInfo != null) {
-			String newStation = stationName(lineInfo);
-			stations.add(newStation);
+		double avg = ((val1 + val2 + val3 + val4) / 4.0);
 
-			lineInfo = br.readLine();
-		}
-		br.close();
-	}
-	
-	/**
-	 * Creates a new string from each line of the text file by separating the first
-	 * four characters into a substring. The return string is to be stored in the
-	 * stations ArrayList.
-	 * 
-	 * @param strg
-	 * @return
-	 */
-	public String stationName(String strg)
-	{
-		String stationName = strg.substring(0, 4);
-		return stationName;
+		// [0] Calculates ASCII Ceiling
+		averages[0] = (int) Math.ceil(avg);
+
+		// [1] Calculates ASCII Floor
+		averages[1] = (int) Math.floor(avg);
+
+		// [2] Calculates ASCII Average
+		averages[2] = (int) Math.ceil(avg);
+
+		return averages;
 	}
 
-	public String[] calAverage() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	// Returns a "string" of the letter that corresponds to the ASCII average from
+	// the stationID
 	public String letterAverage() {
 		// TODO Auto-generated method stub
-		return null;
+
+		return Character.toString((char) calAverage()[2]);
 	}
 
 }
