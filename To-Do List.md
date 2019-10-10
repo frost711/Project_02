@@ -1,6 +1,6 @@
 # Project_02 TO-DO List
 _____________________
-## Github Submissions:		9 / 20
+## Github Submissions:		10 / 20
 ## Tasks
 1. Complete MesoAbstract Class
 	* __Complete__ Write abstract calAverage method
@@ -13,10 +13,12 @@ _____________________
 	* Write constructor
 	* __Complete__ Write read method
 	* __Complete__ Write subString method for Station ID
-	* Write indexOfStation method
-	* Write toString method
+	* __Complete__ Write indexOfStation method
+	* __Complete__ Write toString method
 4. Write LetterAvg Class
 	* Write constructor
+	* __Complete__ Write read method
+	* __Complete__ Write subString method for Station ID
 	* Write numberOfStationWithLetterAvg method
 	* Write toString method
 5. Write README.md

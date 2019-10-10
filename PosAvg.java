@@ -8,8 +8,6 @@ public class PosAvg {
 
 	private String stationID;
 
-	private int indexOfStation;
-
 	protected ArrayList<String> stationList = new ArrayList<String>();
 
 	public PosAvg(String stID) throws IOException {
@@ -21,10 +19,6 @@ public class PosAvg {
 
 	public String getStationID() {
 		return stationID;
-	}
-
-	public int getIndexOfStation() {
-		return indexOfStation;
 	}
 
 	/**
@@ -64,12 +58,12 @@ public class PosAvg {
 	 * @return
 	 */
 	public String stationName(String strg) {
-		String stationName = strg.substring(0, 5);
+		String stationName = strg.substring(1, 5);
 		return stationName;
 	}
 
 	public String indexOfStation() {
-		indexOfStation = 0;
+		int indexOfStation = 0;
 		String stationOfImportance = getStationID();
 		for (int i = 0; i < stationList.size(); ++i) {
 			if (stationOfImportance.equalsIgnoreCase(stationList.get(i))) {
@@ -85,10 +79,10 @@ public class PosAvg {
 	public String toString() {
 		// The index average is N+2 station and N-2 station && the average of N+1
 		// station and N-1 station
-		String station1 = null; // stationList.get(getIndexOfStation() - 1);
-		String station2 = null; // stationList.get(getIndexOfStation() + 1);
-		String station3 = null; // stationList.get(getIndexOfStation() - 2);
-		String station4 = null; // stationList.get(getIndexOfStation() + 2);
+		String station1 = stationList.get(Integer.parseInt(indexOfStation()) - 2);
+		String station2 = stationList.get(Integer.parseInt(indexOfStation()));
+		String station3 = stationList.get(Integer.parseInt(indexOfStation()) - 3);
+		String station4 = stationList.get(Integer.parseInt(indexOfStation()) + 1);
 		return String.format("The index is average of %s and %s, %s and %s, and so on.", station1, station2, station3,
 				station4);
 	}
