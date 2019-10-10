@@ -1,7 +1,7 @@
 
 // This class is responsible for generating output for lines 3 to 6
 // Must inherit the abstract class/method as necessary
-public class MesoInherit {
+public class MesoInherit extends MesoAbstract {
 
 	private String station;
 
@@ -35,8 +35,6 @@ public class MesoInherit {
 		return averages;
 	}
 
-	// Returns a "string" of the letter that corresponds to the ASCII average from
-	// the stationID
 	public char letterAverage() {
 		// TODO Auto-generated method stub
 

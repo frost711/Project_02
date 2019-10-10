@@ -75,12 +75,12 @@ public class LetterAvg {
 
 	@Override
 	public String toString() {
-		String output = "\nThey are:";
+		String output = "";
     	for (int i = 0; i < sameLetterStations.size(); ++i)
     	{
     		output = (output + "\n" + sameLetterStations.get(i));
     	}
-    	return output;
+    	return "\nThey are:" + output;
 	}
 
 }
