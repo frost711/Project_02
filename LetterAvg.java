@@ -55,7 +55,7 @@ public class LetterAvg {
 	 * @return
 	 */
 	public String stationName(String strg) {
-		String stationName = strg.substring(0, 5);
+		String stationName = strg.substring(1, 5);
 		return stationName;
 	}
 
@@ -65,7 +65,7 @@ public class LetterAvg {
 		int count = 0;
 		for (int i = 0; i < stations.size(); ++i)
 		{
-			if (charAvg == (stations.get(i).charAt(1)))
+			if (charAvg == (stations.get(i).charAt(0)))
 			{
 				sameLetterStations.add(stations.get(i));
 				++count;
@@ -77,10 +77,10 @@ public class LetterAvg {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		String output = "They are: \n";
+		String output = "\nThey are:\n";
     	for (int i = 0; i < sameLetterStations.size(); i++)
     	{
-    		output = output + sameLetterStations.get(i).toString();
+    		output = output + sameLetterStations.get(i) + "\n";
     	}
     	return output;
 	}
