@@ -8,7 +8,7 @@ public class LetterAvg {
 	
 	private String letterAvg;
 
-	protected ArrayList<String> stationList = new ArrayList<String>();
+	protected ArrayList<String> stations = new ArrayList<String>();
 	
 	protected ArrayList<String> sameLetterStations = new ArrayList<String>();
 	
@@ -38,7 +38,7 @@ public class LetterAvg {
 		// reads in each line of the text file until the loop reaches the final line
 		while (lineInfo != null) {
 			String newStation = stationName(lineInfo);
-			stationList.add(newStation);
+			stations.add(newStation);
 
 			lineInfo = br.readLine();
 		}
@@ -62,12 +62,14 @@ public class LetterAvg {
 		// TODO Auto-generated method stub
 		char charAvg = letterAvg.charAt(0);
 		int count = 0;
-		for (int i = 0; i < stationList.size(); ++i)
+		for (int i = 0; i < stations.size(); ++i)
 		{
-			if (charAvg == (stationList.get(i).charAt(0)))
+			System.out.println(stations.get(i));
+			if (charAvg == (stations.get(i).charAt(0)))
 			{
-				sameLetterStations.add(stationList.get(i));
+				sameLetterStations.add(stations.get(i));
 				++count;
+				
 			}
 		}
 			return null;
