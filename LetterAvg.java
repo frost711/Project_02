@@ -66,21 +66,37 @@ public class LetterAvg {
 		{
 			if (letterAvg == (stations.get(i).charAt(0)))
 			{
-				sameLetterStations.add(stations.get(i));
+				// sameLetterStations.add(stations.get(i));
 				++count;
 			}
 		}
 			return count;
 	}
+	
+	public ArrayList<String> numberOfStationWithLetterAvg1() {
+		// TODO Auto-generated method stub
+		int count = 0;
+		for (int i = 0; i < stations.size(); ++i)
+		{
+			if (letterAvg == (stations.get(i).charAt(0)))
+			{
+				sameLetterStations.add(stations.get(i));
+				++count;
+			}
+		}
+			return sameLetterStations;
+	}
 
 	@Override
 	public String toString() {
-		String output = "";
-    	for (int i = 0; i < sameLetterStations.size(); ++i)
+		ArrayList<String> temp = new ArrayList<String>();
+		temp = numberOfStationWithLetterAvg1();
+		String output = "\nThey are:";
+    	for (int i = 0; i < temp.size(); ++i)
     	{
-    		output = (output + "\n" + sameLetterStations.get(i));
+    		output = (output + "\n" + temp.get(i));
     	}
-    	return "\nThey are:" + output;
+    	return output;
 	}
 
 }
