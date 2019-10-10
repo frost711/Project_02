@@ -7,6 +7,14 @@ import java.util.ArrayList;
 public class PosAvg {
 
 	private String stationID;
+	
+	private String stationOne;
+	
+	private String stationTwo;
+	
+	private String stationThree;
+	
+	private String stationFour;
 
 	protected ArrayList<String> stations = new ArrayList<String>();
 
@@ -18,6 +26,10 @@ public class PosAvg {
 		this.stationID = stID;
 		// The index average is N+2 station and N-2 station && the average of N+1
 		// station and N-1 station
+	}
+
+	public String getStationID() {
+		return stationID;
 	}
 
 	/**
@@ -57,18 +69,28 @@ public class PosAvg {
 	 * @return
 	 */
 	public String stationName(String strg) {
-		String stationName = strg.substring(0, 3);
+		String stationName = strg.substring(0, 4);
 		return stationName;
 	}
 
 	public String indexOfStation() {
 		// TODO Auto-generated method stub
-		String indexOfStation; //= stations.getIndex().equals(stationID);
+		int indexOfStation = 0; 
 
-		// Index of the station is index of ArrayList + 1 since ArrayList is zero
-		// indexed
-
-		return indexOfStation = null;
+		// Index of the station is index of ArrayList + 1 since ArrayList is zer0 indexed
+		for (int i = 0; i < stations.size(); ++i)
+		{
+			if (stationID.equals(stations.get(i)))
+			{
+				indexOfStation = stations.indexOf(stations.get(i));
+			}
+		}
+		return Integer.toString(indexOfStation + 1);
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("The index is average of %s and %s, %s and %s, and so on.", stationOne, stationTwo, stationThree, stationFour);
 	}
 
 }
