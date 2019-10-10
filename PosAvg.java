@@ -7,29 +7,24 @@ import java.util.ArrayList;
 public class PosAvg {
 
 	private String stationID;
-	
-	private String stationOne;
-	
-	private String stationTwo;
-	
-	private String stationThree;
-	
-	private String stationFour;
 
-	protected ArrayList<String> stations = new ArrayList<String>();
+	private int indexOfStation;
+
+	protected ArrayList<String> stationList = new ArrayList<String>();
 
 	public PosAvg(String stID) throws IOException {
-		// TODO Auto-generated constructor stub
 		// reads the text file that is used for comparison and calculations throughout
 		// the program
 		read("Mesonet.txt");
 		this.stationID = stID;
-		// The index average is N+2 station and N-2 station && the average of N+1
-		// station and N-1 station
 	}
 
 	public String getStationID() {
 		return stationID;
+	}
+
+	public int getIndexOfStation() {
+		return indexOfStation;
 	}
 
 	/**
@@ -47,13 +42,13 @@ public class PosAvg {
 		String lineInfo = br.readLine();
 
 		// Removes the first two lines of the text file from the ArrayList
-		for (int i = 0; i < 2; ++i)
+		for (int i = 0; i <= 2; ++i)
 			lineInfo = br.readLine();
 
 		// reads in each line of the text file until the loop reaches the final line
 		while (lineInfo != null) {
 			String newStation = stationName(lineInfo);
-			stations.add(newStation);
+			stationList.add(newStation);
 
 			lineInfo = br.readLine();
 		}
@@ -69,28 +64,33 @@ public class PosAvg {
 	 * @return
 	 */
 	public String stationName(String strg) {
-		String stationName = strg.substring(0, 4);
+		String stationName = strg.substring(0, 5);
 		return stationName;
 	}
 
 	public String indexOfStation() {
-		// TODO Auto-generated method stub
-		int indexOfStation = 0; 
-
-		// Index of the station is index of ArrayList + 1 since ArrayList is zer0 indexed
-		for (int i = 0; i < stations.size(); ++i)
-		{
-			if (stationID.equals(stations.get(i)))
-			{
-				indexOfStation = stations.indexOf(stations.get(i));
+		indexOfStation = 0;
+		String stationOfImportance = getStationID();
+		for (int i = 0; i < stationList.size(); ++i) {
+			if (stationOfImportance.equalsIgnoreCase(stationList.get(i))) {
+				// Index of the station is index of ArrayList + 1 since ArrayList is zero
+				// indexed
+				indexOfStation = stationList.indexOf(stationList.get(i)) + 1;
 			}
 		}
-		return Integer.toString(indexOfStation + 1);
+		return Integer.toString(indexOfStation);
 	}
-	
+
 	@Override
 	public String toString() {
-		return String.format("The index is average of %s and %s, %s and %s, and so on.", stationOne, stationTwo, stationThree, stationFour);
+		// The index average is N+2 station and N-2 station && the average of N+1
+		// station and N-1 station
+		String station1 = null; // stationList.get(getIndexOfStation() - 1);
+		String station2 = null; // stationList.get(getIndexOfStation() + 1);
+		String station3 = null; // stationList.get(getIndexOfStation() - 2);
+		String station4 = null; // stationList.get(getIndexOfStation() + 2);
+		return String.format("The index is average of %s and %s, %s and %s, and so on.", station1, station2, station3,
+				station4);
 	}
 
 }
