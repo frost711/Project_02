@@ -1,6 +1,6 @@
 # Project_02 TO-DO List
 _____________________
-## Github Submissions:		4 / 20
+## Github Submissions:		8 / 20
 ## Tasks
 1. Complete MesoAbstract Class
 	* __Complete__ Write abstract calAverage method
