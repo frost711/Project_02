@@ -6,13 +6,13 @@ import java.util.ArrayList;
 // This class is responsible for generating line 7 of the output to the end of the output.
 public class LetterAvg {
 	
-	private String letterAvg;
+	private char letterAvg;
 
 	protected ArrayList<String> stations = new ArrayList<String>();
 	
 	protected ArrayList<String> sameLetterStations = new ArrayList<String>();
 	
-	public LetterAvg(String letterAverage) throws IOException {
+	public LetterAvg(char letterAverage) throws IOException {
 
 		this.letterAvg = letterAverage;
 		read("Mesonet.txt");
@@ -61,11 +61,10 @@ public class LetterAvg {
 
 	public int numberOfStationWithLetterAvg() {
 		// TODO Auto-generated method stub
-		char charAvg = letterAvg.charAt(0);
 		int count = 0;
 		for (int i = 0; i < stations.size(); ++i)
 		{
-			if (charAvg == (stations.get(i).charAt(0)))
+			if (letterAvg == (stations.get(i).charAt(0)))
 			{
 				sameLetterStations.add(stations.get(i));
 				++count;
@@ -76,11 +75,10 @@ public class LetterAvg {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		String output = "\nThey are:";
-    	for (int i = 0; i < sameLetterStations.size(); i++)
+    	for (int i = 0; i < sameLetterStations.size(); ++i)
     	{
-    		output = output + "\n" + sameLetterStations.get(i);
+    		output = (output + "\n" + sameLetterStations.get(i));
     	}
     	return output;
 	}

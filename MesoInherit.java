@@ -37,10 +37,10 @@ public class MesoInherit {
 
 	// Returns a "string" of the letter that corresponds to the ASCII average from
 	// the stationID
-	public String letterAverage() {
+	public char letterAverage() {
 		// TODO Auto-generated method stub
 
-		return Character.toString((char) calAverage()[2]);
+		return (char) calAverage()[2];
 	}
 
 }
