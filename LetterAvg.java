@@ -77,10 +77,10 @@ public class LetterAvg {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		String output = "\nThey are:\n";
+		String output = "\nThey are:";
     	for (int i = 0; i < sameLetterStations.size(); i++)
     	{
-    		output = output + sameLetterStations.get(i) + "\n";
+    		output = output + "\n" + sameLetterStations.get(i);
     	}
     	return output;
 	}
