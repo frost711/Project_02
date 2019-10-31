@@ -5,13 +5,13 @@ import java.util.ArrayList;
 
 // This class is responsible for generating line 7 of the output to the end of the output.
 public class LetterAvg {
-	
+
 	private char letterAvg;
 
 	protected ArrayList<String> stations = new ArrayList<String>();
-	
+
 	protected ArrayList<String> sameLetterStations = new ArrayList<String>();
-	
+
 	public LetterAvg(char letterAverage) throws IOException {
 
 		this.letterAvg = letterAverage;
@@ -62,29 +62,24 @@ public class LetterAvg {
 	public int numberOfStationWithLetterAvg() {
 		// TODO Auto-generated method stub
 		int count = 0;
-		for (int i = 0; i < stations.size(); ++i)
-		{
-			if (letterAvg == (stations.get(i).charAt(0)))
-			{
+		for (int i = 0; i < stations.size(); ++i) {
+			if (letterAvg == (stations.get(i).charAt(0))) {
 				// sameLetterStations.add(stations.get(i));
 				++count;
 			}
 		}
-			return count;
+		return count;
 	}
-	
+
 	public ArrayList<String> numberOfStationWithLetterAvg1() {
-		// TODO Auto-generated method stub
-		int count = 0;
-		for (int i = 0; i < stations.size(); ++i)
-		{
-			if (letterAvg == (stations.get(i).charAt(0)))
-			{
+
+		for (int i = 0; i < stations.size(); ++i) {
+			if (letterAvg == (stations.get(i).charAt(0))) {
 				sameLetterStations.add(stations.get(i));
-				++count;
+
 			}
 		}
-			return sameLetterStations;
+		return sameLetterStations;
 	}
 
 	@Override
@@ -92,11 +87,10 @@ public class LetterAvg {
 		ArrayList<String> temp = new ArrayList<String>();
 		temp = numberOfStationWithLetterAvg1();
 		String output = "\nThey are:";
-    	for (int i = 0; i < temp.size(); ++i)
-    	{
-    		output = (output + "\n" + temp.get(i));
-    	}
-    	return output;
+		for (int i = 0; i < temp.size(); ++i) {
+			output = (output + "\n" + temp.get(i));
+		}
+		return output;
 	}
 
 }

@@ -6,7 +6,6 @@ public class MesoInherit extends MesoAbstract {
 	private String station;
 
 	public MesoInherit(MesoStation mesoStation) {
-		// TODO Auto-generated constructor stub
 
 		this.station = mesoStation.getStID();
 
@@ -36,7 +35,6 @@ public class MesoInherit extends MesoAbstract {
 	}
 
 	public char letterAverage() {
-		// TODO Auto-generated method stub
 
 		return (char) calAverage()[2];
 	}
