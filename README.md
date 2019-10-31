@@ -35,5 +35,22 @@
 		- Returns a string of the stations N-2, N+2, N-1, and N+1.
 
 4. LetterAvg
-	*
-		-		
+	* Constructor
+		- Calls the read method on the text file "Mesonet.txt".
+		- Also initiates the class variable letterAvg with the char parameter passed in.
+	* read
+		- Reads in every line of the text file. Skips over the first 2 lines of the text file
+			before adding strings of stationNames to a class variable ArrayList. Does so by 
+			calling the stationName method to isolate the 4 characters of the station name from
+			the rest of the line information.
+	* stationName
+		- Returns a substring of 4 characters.
+	* numberOfStationWithLetterAvg
+		- Returns a count of all the stations within the ArrayList that start with the same char
+			as the letterAvg of importance.
+	* numberOfStationWitherLetterAvg1
+		- Returns an array of all stations that start with the same char as the letterAvg of 
+			importance.
+	* toString
+		- Returns a string of all the stations in the ArrayList returned by the method above.
+		
